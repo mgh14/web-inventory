@@ -1,0 +1,11 @@
+#comments-area > div:nth-of-type(even) {
+    background: #3399CC;
+}
+
+.commentTextarea {
+    width: 100%;
+}
+
+textarea.commentTextarea {
+    resize: vertical;
+}
