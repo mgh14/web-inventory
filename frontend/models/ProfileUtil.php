@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: mgh14
- * Date: 3/7/2015
- * Time: 12:17 PM
- */
-
 namespace frontend\models;
-
 
 use common\models\User;
 use frontend\models\db\record\ProfileImage;
@@ -46,4 +38,5 @@ class ProfileUtil {
         <?php
         return ob_get_clean();
     }
+
 }
