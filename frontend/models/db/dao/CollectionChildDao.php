@@ -15,18 +15,14 @@ class CollectionChildDao {
     }
 
     public static function isCollectionAncestorOfCollection($collectionId, $potentialAncestorId) {
-        $db = Yii::$app->db;
-
         // query with mysqli for better performance
-        $dbName = substr($db->dsn, strpos($db->dsn, "dbname") + 7);
-        $conn = new mysqli("localhost", $db->username, $db->password, $dbName);
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        
+        /* @var mysqli $conn */
+        $conn = DatabaseConnectionUtil::getMysqliDbConnection();
+
         $allAncestorsOfCollection = 
             CollectionChildDao::getAllParentsOfCollection($collectionId, $conn);
+
+        $conn->close();
         return in_array($potentialAncestorId, $allAncestorsOfCollection);
     }
 
