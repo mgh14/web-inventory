@@ -9,6 +9,29 @@ class UserDao {
         return "user";
     }
 
+    public static function getUsersByIds($userIds, $useIdAsKey = false) {
+        $query = (new \yii\db\Query())->select(array())->
+            from(static::getTableName())->where(array('in', 'id', $userIds));
+        $command = $query->createCommand();
+        $results = $command->queryAll();
+
+        if ((!$results) || ($results->num_rows < 1)) {
+            return array();
+        }
+
+        $users = array();
+        while ($row = $results->fetch_assoc()) {
+            if (!in_array($row, $users)) {
+                if ($useIdAsKey) {
+                    $users[$row['id']] = $row;
+                }
+                else {
+                    $users[] = $row;
+                }
+            }
+        }
+    }
+
     public static function getUsersByUsername($username) {
         $conn = DatabaseConnectionUtil::getMysqliDbConnection();
 
@@ -28,6 +51,8 @@ class UserDao {
                 $users[] = $row;
             }
         }
+
+        $conn->close();
 
         return $users;
     }
