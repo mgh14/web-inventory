@@ -8,7 +8,6 @@ class DatabaseConnectionUtil {
 
     public static function getMysqliDbConnection() {
         $db = Yii::$app->db;
-        \Yii::$app->response->format = 'json';
 
         $dbName = substr($db->dsn, strpos($db->dsn, "dbname") + 7);
         $conn = new mysqli("localhost", $db->username, $db->password, $dbName);
