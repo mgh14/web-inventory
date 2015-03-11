@@ -19,6 +19,8 @@ UserAsset::register($this, View::POS_BEGIN);
 </div>
 <button class="floatLeft" id="searchUsersBtn">Search</button>
 
+<div style="clear: both;"></div>
+
 <div id="users"></div>
 
 <style>
