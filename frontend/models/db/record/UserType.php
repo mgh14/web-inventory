@@ -13,7 +13,7 @@ class UserType extends ActiveRecord {
         $all = static::find()->all();
         $idKeyedTypes = array();
         foreach ($all as $type) {
-            $idKeyedTypes[$type['id']] = $type['name'];
+            $idKeyedTypes[$type['id']] = $type['display_name'];
         }
 
         return $idKeyedTypes;
