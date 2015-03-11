@@ -55,4 +55,20 @@ $(document).ready(function() {
     }
   });
 
+
+  // set up "search" button
+  $('#searchUsersBtn').click(function() {
+    var query = $('#searchBar').val();
+
+    $.get('?r=user%2Fget-user-profiles&query=' + query,
+      function (result) {
+        $('#users').html(result);
+      }
+    )
+    .error(function(result) {
+      handleError(result);
+    });
+
+  });
+
 });
