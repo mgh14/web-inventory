@@ -8,4 +8,15 @@ class UserType extends ActiveRecord {
     public static function tableName() {
         return "user_type";
     }
+
+    public static function getAllTypesWithIdAsKey() {
+        $all = static::find()->all();
+        $idKeyedTypes = array();
+        foreach ($all as $type) {
+            $idKeyedTypes[$type['id']] = $type['name'];
+        }
+
+        return $idKeyedTypes;
+    }
+
 }
