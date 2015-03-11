@@ -96,4 +96,45 @@ class UserController extends Controller {
         return $this->render('user-directory');
     }
 
+    public function actionGetUserProfiles() {
+        $queryParam = \Yii::$app->getRequest()->getQueryParam("query");
+        $users = UserDao::getUsersByUsername($queryParam);
+
+        $userIds = array_map(function($i) {
+            return $i['id'];
+        }, $users);
+        $images = ProfileImage::getByUserIds($userIds, true);
+
+        return $this->generateUserSummaryTables($users, $images);
+    }
+
+    private function generateUserSummaryTables($users, $images) {
+        $userTypes = UserType::find()->all();
+
+        ob_start();
+        ?>
+
+        <div id="users">
+            <?php
+            foreach ($users as $user) {
+                $image = "football.png";
+                if (isset($images[$user['id']])) {
+                    $image = $images[$user['id']];
+                }
+
+                echo $this->generateUserSummaryHtml($user,
+                                                    $userTypes[$user['user_type']], $image) . "<br/>";
+            }
+            ?>
+        </div>
+
+        <?php
+        return ob_get_clean();
+    }
+
+    private function generateUserSummaryHtml($user, $userType, $profileFilename) {
+        return "User: Id:" . $user['id'] . "; Username: " . $user['username'] . "; Type: " .
+        $userType['name'] . "; image: " . $profileFilename . ";";
+    }
+
 }
