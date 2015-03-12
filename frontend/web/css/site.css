@@ -96,6 +96,14 @@ a.desc:after {
     float: left;
 }
 
+.floatRight {
+    float: right;
+}
+
 .displayNone {
     display: none;
+}
+
+.centerText {
+    text-align: center;
 }
