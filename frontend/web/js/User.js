@@ -11,7 +11,7 @@ $(document).ready(function() {
     remote: {
       maxParallelRequests: 0,
       url: 'http://localhost/public_html/mr-test-two/frontend/web/index.php?' +
-        'r=user%2Fget-usernames&useJson=true&query=%QUERY',
+        'r=user%2Fget-usernames&useJson=true&query=%QUERY&limit=5',
       ajax: {
         type: "GET",
         timeout: 10000,
@@ -55,20 +55,36 @@ $(document).ready(function() {
     }
   });
 
-
   // set up "search" button
   $('#searchUsersBtn').click(function() {
     var query = $('#searchBar').val();
 
     $.get('?r=user%2Fget-user-profiles&query=' + query,
       function (result) {
-        $('#users').html(result);
+        var html = $.parseHTML(result);
+        $('#users-grid').html(html[0]);
+        $('#users-list').html(html[1]);
       }
     )
     .error(function(result) {
-      handleError(result);
-    });
-
+        alert('error');
+      }
+    ).always(function(result) {
+        //alert('finished');
+      }
+    );
   });
+
+  // set up 'grid' and 'list' views
+  $('#gridViewBtn').click(function() {
+    $('#users-grid').show();
+    $('#users-list').hide();
+  });
+
+  $('#listViewBtn').click(function() {
+    $('#users-grid').hide();
+    $('#users-list').show();
+  })
+
 
 });

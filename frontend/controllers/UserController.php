@@ -57,37 +57,11 @@ class UserController extends Controller {
     public function actionGetUsernames() {
         \Yii::$app->response->format = Response::FORMAT_JSON;
         $queryParam = \Yii::$app->getRequest()->getQueryParam("query");
+        $limitParam = intval(\Yii::$app->getRequest()->getQueryParam("limit"));
+
         $conn = DatabaseConnectionUtil::getMysqliDbConnection();
-        $usernames = $this->getUsernames($conn, $queryParam);
+        $usernames = UserDao::getUsernamesByUsername($conn, $queryParam, $limitParam);
         $conn->close();
-
-        return $usernames;
-    }
-
-    /* @var mysqli $conn */
-    private function getUsernames($conn, $queryParam) {
-        // query with mysqli for better performance
-        /* @var mysqli $conn */
-        $sqlStatement = $conn->prepare("SELECT username FROM user WHERE username LIKE ?;");
-        $queryParamWithPercents = "%" . $queryParam . "%";
-        $sqlStatement->bind_param('s', $queryParamWithPercents);
-        $sqlStatement->execute();
-        $result = $sqlStatement->get_result();
-        if ((!$result) || ($result->num_rows < 1)) {
-            return array();
-        }
-
-        // store parentId's in an array
-        $usernames = array();
-        while ($row = $result->fetch_assoc()) {
-            $username = $row["username"];
-            if (!in_array($username, $usernames)) {
-                $usernames[] = ["username" => $username];
-            }
-        }
-
-        // free the result set
-        $result->free();
 
         return $usernames;
     }
@@ -96,25 +70,32 @@ class UserController extends Controller {
         return $this->render('user-directory');
     }
 
+    public function actionGetRandomUserProfiles() {
+        //$users = UserDao::getUsers
+    }
+
     public function actionGetUserProfiles() {
+        Yii::$app->response->format = Response::FORMAT_HTML;
         $queryParam = \Yii::$app->getRequest()->getQueryParam("query");
-        $users = UserDao::getUsersByUsername($queryParam);
+        $users = UserDao::getUsersByUsername($queryParam, 0);
 
         $userIds = array_map(function($i) {
             return $i['id'];
         }, $users);
         $images = ProfileImage::getByUserIds($userIds, true);
+        $userTypes = UserType::getAllTypesWithIdAsKey();
 
-        return $this->generateUserSummaryTables($users, $images);
+        return "<div id='users-gridView'>" .
+                $this->generateUserSummariesGrid($users, $images, $userTypes) . "</div>" .
+            "<div id='users-listView'>" .
+                $this->generateUserSummariesList($users, $images, $userTypes) . "</div>";
     }
 
-    private function generateUserSummaryTables($users, $images) {
-        $userTypes = UserType::find()->all();
-
+    private function generateUserSummariesList($users, $images, $userTypesById) {
         ob_start();
         ?>
 
-        <div id="users">
+        <div id="users-list">
             <?php
             foreach ($users as $user) {
                 $image = "football.png";
@@ -122,8 +103,7 @@ class UserController extends Controller {
                     $image = $images[$user['id']];
                 }
 
-                echo $this->generateUserSummaryHtml($user,
-                                                    $userTypes[$user['user_type']], $image) . "<br/>";
+                echo $this->generateUserListSummaryHtml($user, $userTypesById[$user['user_type']], $image);
             }
             ?>
         </div>
@@ -132,9 +112,54 @@ class UserController extends Controller {
         return ob_get_clean();
     }
 
-    private function generateUserSummaryHtml($user, $userType, $profileFilename) {
+    private function generateUserListSummaryHtml($user, $userType, $profileFilename) {
+        return "username: " . $user['username'];
+    }
+
+    private function generateUserSummariesGrid($users, $images, $userTypesById) {
+        ob_start();
+        ?>
+
+        <div id="users-grid">
+            <?php
+            foreach ($users as $user) {
+                $image = "football.png";
+                if (isset($images[$user['id']])) {
+                    $image = $images[$user['id']];
+                }
+
+                echo $this->generateUserGridSummaryHtml($user, $userTypesById[$user['user_type']], $image);
+            }
+            ?>
+        </div>
+
+        <?php
+        return ob_get_clean();
+    }
+
+    /*private function generateUserSummaryHtml($user, $userType, $profileFilename) {
         return "User: Id:" . $user['id'] . "; Username: " . $user['username'] . "; Type: " .
         $userType['name'] . "; image: " . $profileFilename . ";";
+    }*/
+
+    private function generateUserGridSummaryHtml($user, $userType, $profileFilename) {
+        ob_start();
+        ?>
+
+        <div id="user<?php echo $user['id']?>" class="floatLeft" style="width: 13%; margin-top:3%; margin-right:7%; font-size: .9vw;">
+            <img style="width: 100%; margin-left: auto; margin-right: auto;"
+                 src="http://localhost/public_html/mr-test-two/frontend/images/profile/<?php echo $profileFilename?>" />
+            <div style="clear:both;"></div>
+            <p class="centerText" style="margin-top: 15%; margin-bottom: 0;"><b><?php echo $user['username']?></b></p>
+            <div style="clear:both;"></div>
+            <p class="centerText"  style="margin-top: 0; margin-bottom: 0;"><i><?php echo $userType?></i></p>
+            <div style="clear:both;"></div>
+            <p class="centerText"  style="margin-top: 0; margin-bottom: 0;"><?php echo $user['email']?></p>
+            <div style="clear:both;"></div>
+        </div>
+
+        <?php
+        return ob_get_clean();
     }
 
 }
