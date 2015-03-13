@@ -2,6 +2,7 @@
 namespace frontend\models;
 
 use common\models\User;
+use frontend\controllers\ProfileController;
 use frontend\models\db\record\ProfileImage;
 
 class ProfileUtil {
@@ -28,12 +29,15 @@ class ProfileUtil {
         $user = $userAndProfile['user'];
         /* @var $profileImgFilename String */
         $profileImgFilename = $userAndProfile['profileImg'];
+        if ($profileImgFilename == null) {
+            $profileImgFilename = ProfileController::DEFAULT_PROFILE_IMAGE_FILENAME;
+        }
 
         ob_start();
         ?>
         <img class="profileImg <?php echo $classes?> " id="<?php echo $id?>"
              src="http://localhost/public_html/mr-test-two/frontend/images/profile/<?php echo $profileImgFilename?>"
-             alt="<?php echo ucfirst($user->username)?>ProfileImg?>"
+             alt="<?php echo ucfirst($user->username)?>-ProfileImg"
              style=" width:<?php echo $sizeX?>; height:<?php echo $sizeY?>; "/>
         <?php
         return ob_get_clean();
