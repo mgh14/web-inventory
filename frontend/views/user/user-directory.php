@@ -12,7 +12,7 @@ UserAsset::register($this, View::POS_BEGIN);
 ?>
 
 <div id="the-basics" class="floatLeft">
-    <input id="searchBar" class="typeahead" type="text" placeholder="States of USA">
+    <input id="searchBar" class="typeahead" type="text" placeholder="Enter a search value">
 </div>
 <div id='loader1' class="floatLeft loader">
     <img src="http://localhost/public_html/mr-test-two/frontend/images/load/ajax-loader.gif"/>
@@ -25,7 +25,7 @@ UserAsset::register($this, View::POS_BEGIN);
 <hr/>
 
 <div id="users" style="display: inline-block;">
-    <div id="users-grid"></div>
+    <div id="users-grid" style="display: inline-block;"></div>
     <div id="users-list" style="display: none;"></div>
 </div>
 
