@@ -238,7 +238,11 @@ class UserController extends Controller {
             <img style="width: 100%; margin-left: auto; margin-right: auto;"
                  src="http://localhost/public_html/mr-test-two/frontend/images/profile/<?php echo $profileFilename?>" />
             <div style="clear:both;"></div>
-            <p class="centerText" style="margin-top: 15%; margin-bottom: 0;"><b><?php echo $user['username']?></b></p>
+            <p class="centerText" style="margin-top: 15%; margin-bottom: 0;">
+                <a href="?r=profile%2Fview-profile&userId=<?php echo $user['id']?>">
+                    <b><?php echo $user['username']?></b>
+                </a>
+            </p>
             <div style="clear:both;"></div>
             <p class="centerText"  style="margin-top: 0; margin-bottom: 0;"><i><?php echo $userType?></i></p>
             <div style="clear:both;"></div>
