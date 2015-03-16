@@ -27,6 +27,7 @@ UserAsset::register($this, View::POS_BEGIN);
 <div id="users" style="display: inline-block;">
     <div id="users-grid" style="display: inline-block;"></div>
     <div id="users-list" style="display: none;"></div>
+    <div id="paginationContainer"></div>
 </div>
 
 <style>

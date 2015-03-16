@@ -10,6 +10,7 @@ class UserAsset extends AssetBundle {
     ];
     public $js = [
         'js/User.js',
+        'js/AjaxPagination.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
