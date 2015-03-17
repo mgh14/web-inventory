@@ -64,21 +64,21 @@ class PaginationHelper {
 
         if ($prev != "" && $first != "") {
             ?>
-            <button id="<?php echo static::$firstBtnId?>">First</button>
+            <button class="btn" id="<?php echo static::$firstBtnId?>">First</button>
             <div class="hidden" id="<?php echo static::$firstLinkId?>"><?php echo $first?></div>
         <?php
         }
 
         if ($prev != "") {
             ?>
-            <button id="<?php echo static::$prevBtnId?>">Previous</button>
+            <button class="btn" id="<?php echo static::$prevBtnId?>">Previous</button>
             <div class="hidden" id="<?php echo static::$prevLinkId?>"><?php echo $prev?></div>
         <?php
         }
 
         foreach ($pageUrls as $pageNum => $pageUrl) {
             ?>
-            <button id="page<?php echo $pageNum?>SetBtn"><?php echo $pageNum?></button>
+            <button class="btn" id="page<?php echo $pageNum?>SetBtn"><?php echo $pageNum?></button>
             <div class="hidden" id="linkPage<?php echo $pageNum?>"><?php echo $pageUrl?></div>
             <div class="hidden" id="paginationPageNumber"><?php echo $pageNum?></div>
         <?php
@@ -86,14 +86,14 @@ class PaginationHelper {
 
         if ($next != "") {
             ?>
-            <button id="<?php echo static::$nextBtnId?>">Next</button>
+            <button class="btn" id="<?php echo static::$nextBtnId?>">Next</button>
             <div class="hidden" id="<?php echo static::$nextLinkId?>"><?php echo $next?></div>
         <?php
         }
 
         if ($next != "" && $last != "") {
             ?>
-            <button id="<?php echo static::$lastBtnId?>">Last</button>
+            <button class="btn" id="<?php echo static::$lastBtnId?>">Last</button>
             <div class="hidden" id="<?php echo static::$lastLinkId?>"><?php echo $last?></div>
         <?php
         }
