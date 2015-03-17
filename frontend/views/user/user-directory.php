@@ -11,7 +11,7 @@ $this->title = "User Directory";
 UserAsset::register($this, View::POS_BEGIN);
 ?>
 
-<div id="the-basics" class="floatLeft">
+<div id="userSearchContainer" class="floatLeft">
     <input id="searchBar" class="typeahead" type="text" placeholder="Enter a search value">
 </div>
 <div id='loader1' class="floatLeft loader">

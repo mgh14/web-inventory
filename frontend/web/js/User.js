@@ -3,7 +3,7 @@ var bloodhoundRunning = false;
 
 $(document).ready(function() {
   // set up search typeahead
-  var movies = new Bloodhound({
+  var users = new Bloodhound({
     datumTokenizer: function (datum) {
       return Bloodhound.tokenizers.whitespace(datum.value);
     },
@@ -37,13 +37,13 @@ $(document).ready(function() {
     }
   });
 
-  movies.initialize();
+  users.initialize();
 
-  $('#the-basics .typeahead').typeahead(null, {
+  $('#userSearchContainer .typeahead').typeahead(null, {
     highlight: true,
     minLength: 1,
     displayKey: 'value',
-    source: movies.ttAdapter(),
+    source: users.ttAdapter(),
     templates: {
       empty: ['<div class="empty-message">',
         'unable to find any users',
