@@ -1,3 +1,8 @@
+var gridViewBtnSelector = "#gridViewBtn";
+var listViewBtnSelector = "#listViewBtn";
+var gridContainerSelector = "#users-grid";
+var listContainerSelector = "#users-list";
+
 // we use this variable to avoid multiple Bloodhound requests
 var bloodhoundRunning = false;
 
@@ -63,15 +68,8 @@ $(document).ready(function() {
   });
 
   // set up 'grid' and 'list' views
-  $('#gridViewBtn').click(function() {
-    $('#users-grid').show();
-    $('#users-list').hide();
-  });
-
-  $('#listViewBtn').click(function() {
-    $('#users-grid').hide();
-    $('#users-list').show();
-  })
+  setUpGridAndListView(gridViewBtnSelector, listViewBtnSelector,
+      gridContainerSelector, listContainerSelector);
 
 });
 
@@ -88,26 +86,10 @@ function loadPaginatedUserSetResults(url, query) {
         }
       });
 
-      $('#users-grid').html(htmlDivs[0]);
-      $('#users-list').html(htmlDivs[1]);
+      $(gridContainerSelector).html(htmlDivs[0]);
+      $(listContainerSelector).html(htmlDivs[1]);
       $('#paginationContainer').html(htmlDivs[2]);
-
-      // set up 'previous' button
-      if ($("#prevUserSetBtn").length > 0) {
-        $('#prevUserSetBtn').click(function() {
-          var prevLink = $('<div/>').html($('#prevLink').html().trim()).text();
-          loadPaginatedUserSetResults(prevLink, query);
-        });
-      }
-
-      // set up 'next' button
-      if ($("#nextUserSetBtn").length > 0) {
-        //alert('next');
-        $('#nextUserSetBtn').click(function () {
-          var nextLink = $('<div/>').html($('#nextLink').html().trim()).text();
-          loadPaginatedUserSetResults(nextLink, query);
-        });
-      }
+      setUpPaginationButtons(query, "loadPaginatedUserSetResults");
     }
   ).error(function(result) {
       alert('error');

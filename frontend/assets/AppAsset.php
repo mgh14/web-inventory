@@ -21,6 +21,7 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+        'js/Common.js',
         'js/typeahead.js'
     ];
     public $depends = [

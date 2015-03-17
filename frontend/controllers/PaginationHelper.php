@@ -3,6 +3,16 @@ namespace frontend\controllers;
 
 class PaginationHelper {
 
+    static public $firstBtnId = "firstSetBtn";
+    static public $prevBtnId = "prevSetBtn";
+    static public $nextBtnId = "nextSetBtn";
+    static public $lastBtnId = "lastSetBtn";
+
+    static public $firstLinkId = "firstLink";
+    static public $prevLinkId = "prevLink";
+    static public $nextLinkId = "nextLink";
+    static public $lastLinkId = "lastLink";
+
     public function getPaginationHtml($template, $textToReplace, $offsetParam, $resultLimit, $count) {
         $links = $this->generatePaginationLinks($template, $textToReplace, $offsetParam, $resultLimit, $count);
         return $this->generatePaginationPagesHtml($links["beginningLink"], $links["prevLink"],
@@ -54,15 +64,15 @@ class PaginationHelper {
 
         if ($prev != "" && $first != "") {
             ?>
-            <button id="firstUserSetBtn">First</button>
-            <div class="hidden" id="firstLink"><?php echo $first?></div>
+            <button id="<?php echo static::$firstBtnId?>">First</button>
+            <div class="hidden" id="<?php echo static::$firstLinkId?>"><?php echo $first?></div>
         <?php
         }
 
         if ($prev != "") {
             ?>
-            <button id="prevUserSetBtn">Previous</button>
-            <div class="hidden" id="prevLink"><?php echo $prev?></div>
+            <button id="<?php echo static::$prevBtnId?>">Previous</button>
+            <div class="hidden" id="<?php echo static::$prevLinkId?>"><?php echo $prev?></div>
         <?php
         }
 
@@ -76,15 +86,15 @@ class PaginationHelper {
 
         if ($next != "") {
             ?>
-            <button id="nextUserSetBtn">Next</button>
-            <div class="hidden" id="nextLink"><?php echo $next?></div>
+            <button id="<?php echo static::$nextBtnId?>">Next</button>
+            <div class="hidden" id="<?php echo static::$nextLinkId?>"><?php echo $next?></div>
         <?php
         }
 
         if ($next != "" && $last != "") {
             ?>
-            <button id="lastUserSetButton">Last</button>
-            <div class="hidden" id="lastLink"><?php echo $last?></div>
+            <button id="<?php echo static::$lastBtnId?>">Last</button>
+            <div class="hidden" id="<?php echo static::$lastLinkId?>"><?php echo $last?></div>
         <?php
         }
         return ob_get_clean();
