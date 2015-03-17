@@ -1,42 +1,33 @@
-function loadPaginatedUserSetResults(url, query) {
-  $.get(url,
-    function (result) {
-      var html = $.parseHTML(result);
+function setUpPaginationButtons(query, callback) {
+    // set up 'first' button
+    if (0 < $('#firstSetBtn').length && 0 < $('#firstLink').length) {
+        $('#firstSetBtn').click(function () {
+            var firstLink = $('<div/>').html($('#firstLink').html().trim()).text();
+            eval(callback + "(\"" + firstLink + "\", \"" + query + "\")");
+        })
+    }
 
-      // extract 'div' elements from parsed html
-      var htmlDivs = [];
-      $.each(html, function (i, el) {
-        if (el.nodeName.toLowerCase() == "div") {
-          htmlDivs.push(el);
-        }
-      });
-
-      $('#users-grid').html(htmlDivs[0]);
-      $('#users-list').html(htmlDivs[1]);
-      $('#paginationContainer').html(htmlDivs[2]);
-
-      // set up 'previous' button
-      if ($("#prevUserSetBtn").length > 0) {
-        $('#prevUserSetBtn').click(function() {
-          var prevLink = $('<div/>').html($('#prevLink').html().trim()).text();
-          loadPaginatedUserSetResults(prevLink, query);
+    // set up 'previous' button
+    if (0 < $('#prevSetBtn').length && 0 < $('#prevLink').length) {
+        $('#prevSetBtn').click(function () {
+            var prevLink = $("<div/>").html($('#prevLink').html().trim()).text();
+            eval(callback + "(\"" + prevLink + "\", \"" + query + "\")");
         });
-      }
+    }
 
-      // set up 'next' button
-      if ($("#nextUserSetBtn").length > 0) {
-        //alert('next');
-        $('#nextUserSetBtn').click(function () {
-          var nextLink = $('<div/>').html($('#nextLink').html().trim()).text();
-          loadPaginatedUserSetResults(nextLink, query);
+    // set up 'next' button
+    if (0 < $('#nextSetBtn').length && 0 < $('#nextLink').length) {
+        $('#nextSetBtn').click(function () {
+            var nextLink = $('<div/>').html($('#nextLink').html().trim()).text();
+            eval(callback + "(\"" + nextLink + "\", \"" + query + "\")");
         });
-      }
     }
-  ).error(function(result) {
-      alert('error');
-    }
-  ).always(function(result) {
 
+    // set up 'last' button
+    if (0 < $('#lastSetBtn').length && 0 < $('#lastLink').length) {
+        $('#lastSetBtn').click(function () {
+            var lastLink = $('<div/>').html($('#lastLink').html().trim()).text();
+            eval(callback + "(\"" + lastLink + "\", \"" + query + "\")");
+        })
     }
-  );
 }
