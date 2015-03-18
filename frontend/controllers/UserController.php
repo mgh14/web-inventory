@@ -225,11 +225,6 @@ class UserController extends Controller {
         return ob_get_clean();
     }
 
-    /*private function generateUserSummaryHtml($user, $userType, $profileFilename) {
-        return "User: Id:" . $user['id'] . "; Username: " . $user['username'] . "; Type: " .
-        $userType['name'] . "; image: " . $profileFilename . ";";
-    }*/
-
     private function generateUserGridSummaryHtml($user, $userType, $profileFilename) {
         ob_start();
         ?>
