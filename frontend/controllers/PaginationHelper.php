@@ -79,8 +79,7 @@ class PaginationHelper {
         foreach ($pageUrls as $pageNum => $pageUrl) {
             ?>
             <button class="btn" id="page<?php echo $pageNum?>SetBtn"><?php echo $pageNum?></button>
-            <div class="hidden" id="linkPage<?php echo $pageNum?>"><?php echo $pageUrl?></div>
-            <div class="hidden" id="paginationPageNumber"><?php echo $pageNum?></div>
+            <div class="hidden" id="pageLink<?php echo $pageNum?>"><?php echo $pageUrl?></div>
         <?php
         }
 

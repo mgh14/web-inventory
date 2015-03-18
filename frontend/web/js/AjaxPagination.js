@@ -15,6 +15,17 @@ function setUpPaginationButtons(query, callback) {
         });
     }
 
+    // set up specific page buttons
+    var pageLinkElements = $('[id^=pageLink]');
+    $.each(pageLinkElements, function(i, val) {
+      var pageLink = $("<div/>").html($(val).html().trim()).text();
+      var elementId = $(val).attr('id');
+      var buttonNumber = elementId.substring(elementId.indexOf("pageLink") + 8);
+      $('#page' + buttonNumber + 'SetBtn').click(function() {
+          eval(callback + "(\"" + pageLink + "\", \"" + query + "\")");
+      });
+    });
+
     // set up 'next' button
     if (0 < $('#nextSetBtn').length && 0 < $('#nextLink').length) {
         $('#nextSetBtn').click(function () {
