@@ -3,6 +3,9 @@
  */
 
 /**
+ * For views supporting grid and list views, this function
+ * sets up the appropriate actions to take when each view is
+ * loaded into the browser window
  *
  * @param gridViewBtnSelector
  * @param listViewBtnSelector
