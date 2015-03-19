@@ -15,6 +15,8 @@
 
 var btnPrimaryCssClassName = 'btn-primary';
 
+///////////////////// GRID AND LIST VIEW FUNCTIONS ////////////////////////
+
 function setUpGridAndListView(gridViewBtnSelector, listViewBtnSelector,
     gridContainerSelector, listContainerSelector) {
 
@@ -69,4 +71,17 @@ function focusActiveGridOrListView(gridViewBtnSelector, listViewBtnSelector,
   if ($(listContainerSelector).is(":visible")) {
     giveListButtonFocus(gridViewBtnSelector, listViewBtnSelector);
   }
+}
+
+function setGridAndListButtonEnabled(gridViewBtnSelector,
+  listViewBtnSelector, enabled) {
+
+  setButtonEnabled(gridViewBtnSelector, enabled);
+  setButtonEnabled(listViewBtnSelector, enabled);
+}
+
+////////////////// GENERAL BUTTON FUNCTIONS /////////////////////////
+
+function setButtonEnabled(btnSelector, enabled) {
+  $(btnSelector).prop("disabled", (enabled == true) ? "" : "disabled");
 }
