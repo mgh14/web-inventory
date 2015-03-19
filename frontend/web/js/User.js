@@ -86,8 +86,8 @@ function loadPaginatedUserSetResults(url, query) {
         }
       });
 
-      $(gridContainerId).html(htmlDivs[0]);
-      $(listContainerId).html(htmlDivs[1]);
+      $("#" + gridContainerId).html(htmlDivs[0]);
+      $("#" + listContainerId).html(htmlDivs[1]);
       $('#paginationContainer').html(htmlDivs[2]);
       setUpPaginationButtons(query, "loadPaginatedUserSetResults");
     }
