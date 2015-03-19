@@ -19,8 +19,8 @@ UserAsset::register($this, View::POS_BEGIN);
 </div>
 <button class="btn floatLeft" id="searchUsersBtn">Search</button>
 
-<button class="btn floatRight" style="margin-right: 3%;" id="listViewBtn">List</button>
-<button class="btn floatRight" style="margin-right: .2%;" id="gridViewBtn">Grid</button>
+<button class="btn floatRight" style="margin-right: 3%;" id="listViewBtn" disabled="disabled">List</button>
+<button class="btn floatRight" style="margin-right: .2%;" id="gridViewBtn" disabled="disabled">Grid</button>
 
 <div style="clear: both;"></div>
 <hr/>

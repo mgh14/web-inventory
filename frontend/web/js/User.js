@@ -65,6 +65,7 @@ $(document).ready(function() {
     var query = $('#searchBar').val();
     loadPaginatedUserSetResults("?r=user%2Fget-user-profiles&query=" +
       query + "&offset=0", query);
+    setGridAndListButtonEnabled("#" + gridViewBtnId, "#" + listViewBtnId, true);
   });
 
   // set up 'grid' and 'list' views
