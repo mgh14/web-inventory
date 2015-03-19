@@ -54,11 +54,15 @@ function showListView(gridViewBtnSelector, listViewBtnSelector,
 function giveGridButtonFocus(gridViewBtnSelector, listViewBtnSelector) {
   $(gridViewBtnSelector).addClass(btnPrimaryCssClassName);
   $(listViewBtnSelector).removeClass(btnPrimaryCssClassName);
+
+  setButtonEnabled(gridViewBtnSelector, true);
 }
 
 function giveListButtonFocus(gridViewBtnSelector, listViewBtnSelector) {
   $(gridViewBtnSelector).removeClass(btnPrimaryCssClassName);
   $(listViewBtnSelector).addClass(btnPrimaryCssClassName);
+
+  setButtonEnabled(listViewBtnSelector, true);
 }
 
 function focusActiveGridOrListView(gridViewBtnSelector, listViewBtnSelector,
