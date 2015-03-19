@@ -1,5 +1,6 @@
 <?php
 use frontend\assets\SportsCategoriesAsset;
+use frontend\views\LayoutHelper;
 use yii\web\View;
 
 /**
@@ -12,18 +13,17 @@ $this->title = "Sport Categories";
 
 SportsCategoriesAsset::register($this, View::POS_BEGIN);
 
-?>
-<button class="floatRight" style="margin-right: 3%;" id="listViewBtn">List</button>
-<button class="floatRight" style="margin-right: .2%;" id="gridViewBtn">Grid</button>
+echo LayoutHelper::getViewButtons();
 
+?>
 <div style="clear: both;"></div>
 <hr/>
 
+<div class="description"><i>Click on a category's name to edit it</i></div>
+<br/>
+
 <div id="sportsCategories" style="display: inline-block;">
-    <div id="categories-grid" style="display: inline-block;">
-        <?php echo $gridView?>
-    </div>
-    <div id="categories-list" style="display: none;">
+    <div id="categories-list" style="display: inline-block;">
         <?php echo $listView?>
     </div>
 </div>
