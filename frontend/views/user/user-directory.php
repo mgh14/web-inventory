@@ -1,5 +1,6 @@
 <?php
 use frontend\assets\UserAsset;
+use frontend\views\LayoutHelper;
 use yii\web\View;
 
 /** (no vars)
@@ -19,8 +20,7 @@ UserAsset::register($this, View::POS_BEGIN);
 </div>
 <button class="btn floatLeft" id="searchUsersBtn">Search</button>
 
-<button class="btn floatRight" style="margin-right: 3%;" id="listViewBtn" disabled="disabled">List</button>
-<button class="btn floatRight" style="margin-right: .2%;" id="gridViewBtn" disabled="disabled">Grid</button>
+<?php echo LayoutHelper::getViewButtons()?>
 
 <div style="clear: both;"></div>
 <hr/>
