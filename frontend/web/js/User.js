@@ -90,6 +90,8 @@ function loadPaginatedUserSetResults(url, query) {
       $("#" + listContainerId).html(htmlDivs[1]);
       $('#paginationContainer').html(htmlDivs[2]);
       setUpPaginationButtons(query, "loadPaginatedUserSetResults");
+      focusActiveGridOrListView("#" + gridViewBtnId, "#" + listViewBtnId,
+        "#" + gridContainerId, "#" + listContainerId);
     }
   ).error(function(result) {
       alert('error');

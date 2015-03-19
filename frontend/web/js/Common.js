@@ -13,17 +13,60 @@
  * @param listContainerSelector
  */
 
+var btnPrimaryCssClassName = 'btn-primary';
+
 function setUpGridAndListView(gridViewBtnSelector, listViewBtnSelector,
     gridContainerSelector, listContainerSelector) {
 
-    // set up 'grid' and 'list' views
-    $(gridViewBtnSelector).click(function() {
-        $(gridContainerSelector).show();
-        $(listContainerSelector).hide();
-    });
+  // set up 'grid' view
+  $(gridViewBtnSelector).click(function() {
+    showGridView(gridViewBtnSelector, listViewBtnSelector,
+      gridContainerSelector, listContainerSelector);
+  });
 
-    $(listViewBtnSelector).click(function() {
-        $(gridContainerSelector).hide();
-        $(listContainerSelector).show();
-    })
+  // set up 'list' view
+  $(listViewBtnSelector).click(function() {
+    showListView(gridViewBtnSelector, listViewBtnSelector,
+      gridContainerSelector, listContainerSelector);
+  });
+}
+
+function showGridView(gridViewBtnSelector, listViewBtnSelector,
+  gridContainerSelector, listContainerSelector) {
+
+  giveGridButtonFocus(gridViewBtnSelector, listViewBtnSelector);
+
+  $(gridContainerSelector).show();
+  $(listContainerSelector).hide();
+}
+
+function showListView(gridViewBtnSelector, listViewBtnSelector,
+  gridContainerSelector, listContainerSelector) {
+
+  giveListButtonFocus(gridViewBtnSelector, listViewBtnSelector);
+
+  $(gridContainerSelector).hide();
+  $(listContainerSelector).show();
+}
+
+function giveGridButtonFocus(gridViewBtnSelector, listViewBtnSelector) {
+  $(gridViewBtnSelector).addClass(btnPrimaryCssClassName);
+  $(listViewBtnSelector).removeClass(btnPrimaryCssClassName);
+}
+
+function giveListButtonFocus(gridViewBtnSelector, listViewBtnSelector) {
+  $(gridViewBtnSelector).removeClass(btnPrimaryCssClassName);
+  $(listViewBtnSelector).addClass(btnPrimaryCssClassName);
+}
+
+function focusActiveGridOrListView(gridViewBtnSelector, listViewBtnSelector,
+  gridContainerSelector, listContainerSelector) {
+
+  if ($(gridContainerSelector).is(":visible")) {
+    giveGridButtonFocus(gridViewBtnSelector, listViewBtnSelector);
+  }
+
+  if ($(listContainerSelector).is(":visible")) {
+    giveListButtonFocus(gridViewBtnSelector, listViewBtnSelector);
+  }
 }
