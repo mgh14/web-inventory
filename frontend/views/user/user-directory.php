@@ -17,9 +17,10 @@ UserAsset::register($this, View::POS_BEGIN);
 <div id='loader1' class="floatLeft loader">
     <img src="http://localhost/public_html/mr-test-two/frontend/images/load/ajax-loader.gif"/>
 </div>
-<button class="floatLeft" id="searchUsersBtn">Search</button>
-<button class="floatRight" style="margin-right: 3%;" id="listViewBtn">List</button>
-<button class="floatRight" style="margin-right: .2%;" id="gridViewBtn">Grid</button>
+<button class="btn floatLeft" id="searchUsersBtn">Search</button>
+
+<button class="btn floatRight" style="margin-right: 3%;" id="listViewBtn">List</button>
+<button class="btn floatRight" style="margin-right: .2%;" id="gridViewBtn">Grid</button>
 
 <div style="clear: both;"></div>
 <hr/>
