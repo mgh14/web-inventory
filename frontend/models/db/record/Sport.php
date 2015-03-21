@@ -3,10 +3,10 @@ namespace frontend\models\db\record;
 
 use yii\db\ActiveRecord;
 
-class Sports extends ActiveRecord {
+class Sport extends ActiveRecord {
 
     public static function tableName() {
-        return "sports";
+        return "sport";
     }
 
 }

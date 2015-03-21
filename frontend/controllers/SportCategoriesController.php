@@ -1,7 +1,7 @@
 <?php
 namespace frontend\controllers;
 
-use frontend\models\db\record\Sports;
+use frontend\models\db\record\Sport;
 use frontend\views\LayoutHelper;
 use yii\base\Controller;
 use yii\filters\AccessControl;
@@ -9,7 +9,7 @@ use yii\helpers\HtmlPurifier;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 
-class SportsCategoriesController extends Controller {
+class SportCategoriesController extends Controller {
 
 
     public function behaviors() {
@@ -52,7 +52,7 @@ class SportsCategoriesController extends Controller {
             throw new BadRequestHttpException("New name category is invalid");
         }
 
-        $record = Sports::findOne(['id' => $categoryId]);
+        $record = Sport::findOne(['id' => $categoryId]);
         if (!$record) {
             throw new NotFoundHttpException("Category id [" . $categoryId . "] not found.");
         }
@@ -63,7 +63,7 @@ class SportsCategoriesController extends Controller {
     }
 
     public function actionViewCategories() {
-        $categories = Sports::find()->asArray()->all();
+        $categories = Sport::find()->asArray()->all();
 
         $listView = $this->getCategoriesListView($categories);
         return $this->render("categories", ["listView" => $listView]);

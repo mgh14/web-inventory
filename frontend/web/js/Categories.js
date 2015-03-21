@@ -34,7 +34,7 @@ $(document).ready(function() {
     var id = $.trim($(this).parent().siblings(".categoryId").first().html());
     $(loaderElement).css("display", "inline-block");
     $.ajax({
-      url: "?r=sports-categories%2Fedit-category",
+      url: "?r=sport-categories%2Fedit-category",
       type: 'POST',
       data: "id=" + id + "&newName=" + encodeURIComponent(newCategoryName),
       success: function(data) {
