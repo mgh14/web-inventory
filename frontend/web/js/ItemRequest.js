@@ -18,7 +18,7 @@ $(document).ready(function () {
           .text((openOrClosed == '1') ? 'Open' : 'Close');
     })
     .error(function(result) {
-      handleError(result);
+      handleGeneralError(result);
     });
   });
 
@@ -40,7 +40,7 @@ $(document).ready(function () {
         $('#newCommentEditable').val('');
     })
     .error(function(result) {
-      handleError(result);
+      handleGeneralError(result);
     });
   });
 
@@ -85,7 +85,7 @@ $(document).ready(function () {
         )
         .error(
           function(result) {
-            handleError(result);
+            handleGeneralError(result);
           }
         );
       }
@@ -107,7 +107,7 @@ $(document).ready(function () {
           resetEdit(commentId);
         })
         .error(function(result) {
-          handleError(result);
+          handleGeneralError(result);
         });
     });
 
