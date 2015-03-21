@@ -107,3 +107,8 @@ a.desc:after {
 .centerText {
     text-align: center;
 }
+
+.btn:hover {
+    opacity: 0.75;
+    filter: alpha(opacity=75); /* For IE8 and earlier */
+}
