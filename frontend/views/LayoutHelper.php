@@ -15,4 +15,16 @@ class LayoutHelper {
         <?php
         return ob_get_clean();
     }
+
+    public static function getLoadingGif() {
+        ob_start();
+        ?>
+
+        <div id='loader1' class="loader">
+            <img src="http://localhost/public_html/mr-test-two/frontend/images/load/ajax-loader.gif"/>
+        </div>
+
+        <?php
+        return ob_get_clean();
+    }
 }
