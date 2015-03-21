@@ -44,10 +44,6 @@ $(document).ready(function () {
     });
   });
 
-  function handleError(result) {
-    alert('There was an error. Please contact your system administrator.')
-  }
-
   function resetEdit(commentId) {
     $('#commentActive_' + commentId).text(0);
 

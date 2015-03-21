@@ -89,3 +89,9 @@ function setGridAndListButtonEnabled(gridViewBtnSelector,
 function setButtonEnabled(btnSelector, enabled) {
   $(btnSelector).prop("disabled", (enabled == true) ? "" : "disabled");
 }
+
+////////////////// ERROR FUNCTIONS ///////////////////////
+
+function handleError(result) {
+  alert('There was an error. Please contact your system administrator.')
+}
