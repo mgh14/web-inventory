@@ -6,13 +6,13 @@ use Yii;
 
 class UserDao {
 
-    public static function getTableName() {
+    public static function tableName() {
         return "user";
     }
 
     public static function getUsersByIds($userIds, $useIdAsKey = false) {
         $query = (new \yii\db\Query())->select(array())->
-            from(static::getTableName())->where(array('in', 'id', $userIds));
+            from(static::tableName())->where(array('in', 'id', $userIds));
         $command = $query->createCommand();
         $results = $command->queryAll();
 
@@ -40,7 +40,7 @@ class UserDao {
         }
 
         // query with mysqli for better performance
-        $sql = "SELECT username FROM" . " " . static::getTableName() .
+        $sql = "SELECT username FROM" . " " . static::tableName() .
             " WHERE username LIKE ?";
         if ($limit > 0) {
             $sql .= " LIMIT ?";
@@ -84,7 +84,7 @@ class UserDao {
         }
 
         $conn = DatabaseConnectionUtil::getMysqliDbConnection();
-        $sql = "SELECT * FROM" . " " . static::getTableName() .
+        $sql = "SELECT * FROM" . " " . static::tableName() .
             " WHERE username LIKE ?";
         if ($limit > 0) {
             $sql .= " LIMIT ?";

@@ -13,7 +13,7 @@ use yii\db\ActiveRecord;
 class Collection extends ActiveRecord {
 
     public static function tableName() {
-        return CollectionDao::getTableName();
+        return CollectionDao::tableName();
     }
 
 }

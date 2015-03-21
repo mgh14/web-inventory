@@ -5,7 +5,7 @@ use Yii;
 
 class CollectionDao {
 
-    public static function getTableName() {
+    public static function tableName() {
         return "list";
     }
 

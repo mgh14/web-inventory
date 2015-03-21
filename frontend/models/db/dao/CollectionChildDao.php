@@ -6,7 +6,7 @@ use Yii;
 
 class CollectionChildDao {
 
-    public static function getTableName() {
+    public static function tableName() {
         return "list_child";
     }
     
@@ -49,7 +49,7 @@ class CollectionChildDao {
      * database functionality for better performance
      */
     private static function getAllParentsOfCollection($collectionId, $conn) {
-        $sql = "SELECT * FROM" . " " . CollectionChildDao::getTableName() .
+        $sql = "SELECT * FROM" . " " . CollectionChildDao::tableName() .
             " WHERE child_id = " . $conn->real_escape_string($collectionId) . ";";
         $result = $conn->query($sql);
         if ($conn->connect_error) {

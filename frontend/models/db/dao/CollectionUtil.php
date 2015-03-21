@@ -33,18 +33,18 @@ class CollectionUtil {
     }
 
     public function getChildCollections($parentId) {
-        $command = $this->db->createCommand("SELECT * FROM" . " " . CollectionDao::getTableName() .
+        $command = $this->db->createCommand("SELECT * FROM" . " " . CollectionDao::tableName() .
                                       " WHERE id IN (" .
-                                        " SELECT child_id FROM " . CollectionChildDao::getTableName() .
+                                        " SELECT child_id FROM " . CollectionChildDao::tableName() .
                                         " WHERE parent_id = :parentId )");
 
         return $command->bindValue(":parentId", $parentId)->queryAll();
     }
 
     public function getChildItems($parentId) {
-        $command = $this->db->createCommand("SELECT * FROM" . " " . CollectionItemDao::getTableName() .
+        $command = $this->db->createCommand("SELECT * FROM" . " " . CollectionItemDao::tableName() .
                                       " WHERE id IN (" .
-                                        " SELECT item_id FROM " . CollectionChildItemDao::getTableName() .
+                                        " SELECT item_id FROM " . CollectionChildItemDao::tableName() .
                                         " WHERE parent_id = :parentId )");
 
         return $command->bindValue(":parentId", $parentId)->queryAll();
@@ -99,7 +99,7 @@ class CollectionUtil {
 
     private function isItemChildOfParent($itemId, $parentId) {
         $command = $this->db->createCommand("SELECT 1 FROM" . " " .
-            CollectionChildItemDao::getTableName() .
+            CollectionChildItemDao::tableName() .
             " WHERE parent_id = :parentId AND item_id = :itemId");
 
         $result = $command->bindValues([":parentId" => $parentId,

@@ -7,7 +7,7 @@ use yii\db\ActiveRecord;
 class CollectionChildItem extends ActiveRecord {
 
     public static function tableName() {
-        return CollectionChildItemDao::getTableName();
+        return CollectionChildItemDao::tableName();
     }
 
     public static function addChildItem($itemId, $parentId) {
