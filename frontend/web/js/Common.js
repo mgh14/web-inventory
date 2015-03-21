@@ -92,6 +92,6 @@ function setButtonEnabled(btnSelector, enabled) {
 
 ////////////////// ERROR FUNCTIONS ///////////////////////
 
-function handleError(result) {
+function handleGeneralError(result) {
   alert('There was an error. Please contact your system administrator.')
 }
