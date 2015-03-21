@@ -1,0 +1,29 @@
+.changeCategoryNameContainer {
+    display: none;
+}
+.changeCategoryNameContainer .btn {
+    display: inline-block;
+}
+
+.categoryNameInputContainer {
+    margin-top: 3px;
+}
+
+.categorySpacer {
+    display: inline-block;
+    width: 5px;
+}
+
+.setCategoryNameBtn {
+    margin-left: 15px;
+}
+
+.loader {
+    margin-left: 10px;
+    display: none;
+}
+
+.categories-list-table {
+    table-layout:fixed;
+    width:45%;
+}

@@ -4,7 +4,6 @@ use frontend\views\LayoutHelper;
 use yii\web\View;
 
 /**
- * @var $gridView String (HTML)
  * @var $listView String (HTML)
  */
 
@@ -14,17 +13,15 @@ $this->title = "Sport Categories";
 SportsCategoriesAsset::register($this, View::POS_BEGIN);
 
 echo LayoutHelper::getViewButtons();
-
 ?>
+
 <div style="clear: both;"></div>
 <hr/>
 
 <div class="description"><i>Click on a category's name to edit it</i></div>
 <br/>
 
-<div id="sportsCategories" style="display: inline-block;">
-    <div id="categories-list" style="display: inline-block;">
-        <?php echo $listView?>
-    </div>
+<div class="sportsCategories">
+    <?php echo $listView?>
 </div>
 

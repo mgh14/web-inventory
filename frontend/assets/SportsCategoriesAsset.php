@@ -7,6 +7,7 @@ class SportsCategoriesAsset extends AssetBundle {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'css/Categories.css',
     ];
     public $js = [
         'js/Categories.js',
