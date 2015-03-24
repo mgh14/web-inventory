@@ -124,6 +124,19 @@ a.desc:after {
     text-decoration: underline;
 }
 
+.opacityLink {
+    color: #337ab7;
+    text-decoration: none;
+    font-weight: bold;
+}
+.opacityLink:hover {
+    cursor: pointer;
+    cursor: hand;
+    opacity: .5;
+    filter: alpha(opacity=50);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+}
+
 table td {
     border: 1px solid #DCDCDC;
 }
