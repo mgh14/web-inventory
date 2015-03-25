@@ -3,10 +3,10 @@ namespace frontend\models\db\record;
 
 use yii\db\ActiveRecord;
 
-class MeasurementRequirement extends ActiveRecord {
+class Measurement extends ActiveRecord {
 
     public static function tableName() {
-        return "measurement_requirement";
+        return "measurement";
     }
 
 }
