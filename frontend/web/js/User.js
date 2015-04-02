@@ -15,8 +15,7 @@ $(document).ready(function() {
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     remote: {
       maxParallelRequests: 0,
-      url: 'http://localhost/public_html/mr-test-two/frontend/web/index.php?' +
-        'r=user%2Fget-usernames&useJson=true&query=%QUERY&limit=5',
+      url: '?r=user%2Fget-usernames&useJson=true&query=%QUERY&limit=5',
       ajax: {
         type: "GET",
         timeout: 10000,
