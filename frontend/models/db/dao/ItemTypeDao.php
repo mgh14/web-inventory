@@ -3,10 +3,10 @@ namespace frontend\models\db\dao;
 
 use Yii;
 
-class CollectionItemDao {
+class ItemTypeDao {
 
     public static function tableName() {
-        return "item";
+        return "item_type";
     }
 
 }

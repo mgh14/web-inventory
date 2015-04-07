@@ -42,7 +42,7 @@ class CollectionUtil {
     }
 
     public function getChildItems($parentId) {
-        $command = $this->db->createCommand("SELECT * FROM" . " " . CollectionItemDao::tableName() .
+        $command = $this->db->createCommand("SELECT * FROM" . " " . ItemTypeDao::tableName() .
                                       " WHERE id IN (" .
                                         " SELECT item_id FROM " . CollectionChildItemDao::tableName() .
                                         " WHERE parent_id = :parentId )");
