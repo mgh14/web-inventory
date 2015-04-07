@@ -16,6 +16,13 @@ return [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
         ],
+        /*'assetManager' => [
+            'bundles' => [
+                'yii\bootstrap\BootstrapAsset' => [
+                    'css' => [],
+                ],
+            ]
+        ],*/
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -28,6 +35,20 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        /*'view' => [
+            'theme' => [
+                'pathMap' => ['@app/views' => '@frontend/themes/greenery'],
+                'baseUrl'   => '/web-inventory/frontend/themes/greenery'
+            ]
+        ],*/
+        /*'view' => [
+            'theme' => [
+                'pathMap' => ['@app/views' => '@frontend/themes/stream'],
+                'baseUrl'   => '/web-inventory/frontend/themes/stream'
+            ]
+        ],*/
     ],
+
+
     'params' => $params,
 ];
