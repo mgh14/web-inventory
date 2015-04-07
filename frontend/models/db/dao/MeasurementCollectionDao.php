@@ -17,6 +17,13 @@ class MeasurementCollectionDao {
             ":measurementRequirementId" => $measurementId])->execute() == 1);
     }
 
+    public static function delete($sportId, $measurementId) {
+        $command = static::getDb()->createCommand("DELETE FROM" . " " . static::tableName() .
+            " WHERE sport_id = :sportId AND measurement_id = :measurementId;");
+        return ($command->bindValues([":sportId" => $sportId, ":measurementId" =>
+            $measurementId])->execute() == 1);
+    }
+
     private static function getDb() {
         return Yii::$app->db;
     }

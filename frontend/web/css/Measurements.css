@@ -1,0 +1,157 @@
+body {
+    font-size: 1.2em;
+}
+
+#sportCategory option:first-child {
+    color: #878787;
+}
+#sportCategory {
+    margin-top: 5px;
+}
+
+div {
+    position: relative;
+}
+
+.formGroup {
+    width: 20%;
+    display: inline-block;
+}
+
+.getMeasurements {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.spacer {
+    display: inline-block;
+    width: 5px;
+}
+
+.horizontalRule {
+    display: none;
+}
+
+.measurement {
+    width: 32%;
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.measurementType {
+    min-width: 75px;
+}
+
+.editMeasurement {
+    width: 100%;
+    display: none;
+}
+
+.measurement {
+    horiz-align: left;
+    vertical-align: top;
+    margin-bottom: 15px;
+}
+
+.editMeasurement .measurementNameInputContainer {
+    max-width: 40%;
+    display: inline-block;
+}
+
+.measurementNameInputContainer {
+    display: inline-block;
+    width: 100%;
+}
+
+.measurementNameInputContainer .measurementNameInput {
+    max-width: 100%;
+}
+
+.measurementTypeSelectContainer {
+    max-width: 40%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.measurementTypeSelect {
+    vertical-align: middle;
+}
+
+.editMeasurementBtns {
+    width: 100%;
+    display: block;
+    horiz-align: left;
+    margin-top: 5px;
+}
+.editMeasurementBtns button {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.addMeasurementContainer {
+    /*display: none;*/
+}
+
+.addMeasurementContainer > div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.addNewMeasurementContainer,
+.addExistingMeasurementContainer {
+    width: 33%;
+    margin-top: 10px;
+}
+
+.addMeasurementValues {
+    margin-top: 5px;
+}
+
+.addMeasurementValues > div {
+    display: inline-block;
+}
+
+.addMeasurementBtn {
+    margin-top: 10px;
+}
+
+.addErrors.error-summary {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.newMeasurementValues {
+    margin-bottom: 0 !important;
+}
+
+.orSpacer {
+    width: 10%;
+}
+
+.addExistingMeasurementContainer > * {
+    display: inline-block;
+}
+
+.editMeasurement .editErrors {
+    margin-top: 5px;
+    display: none;
+}
+
+.dialogBox {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: auto;
+    width: 400px;
+    top: 86px;
+    left: 461px;
+    display: none;
+    z-index: 101;
+}
+
+.measurementErrorMessage.error-summary {
+    margin-top: 15px;
+}
+
+.btn {
+    font-size: .9em;
+}
