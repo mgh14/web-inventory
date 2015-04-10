@@ -1,5 +1,7 @@
 <?php
+use frontend\assets\InputDriverTemplateAsset;
 use frontend\assets\SportMeasurementAsset;
+use frontend\views\LayoutHelper;
 use yii\web\View;
 
 /**
@@ -11,36 +13,31 @@ use yii\web\View;
 $this->title = "Measurement Requirements";
 
 SportMeasurementAsset::register($this, View::POS_BEGIN);
-
-//echo LayoutHelper::getViewButtons();
+InputDriverTemplateAsset::register($this, View::POS_BEGIN);
 
 echo $deleteDialog;
+
+ob_start();
 ?>
+    <select id="sportCategory" class="form-control sportCategorySelect">
+        <option value="0" selected="selected">Select a sport</option>
+        <?php
 
-<div>
-    <div class="formGroup">
-        <fieldset>
-            <label for="sportCategory">Sport Category</label>
-            <select id="sportCategory" class="form-control sportCategorySelect">
-                <option value="0" selected="selected">Select a sport</option>
-                <?php
+        foreach ($allCategories as $category) {
+            ?>
 
-                foreach ($allCategories as $category) {
-                ?>
+            <option value="<?php echo $category['id']?>"><?php echo $category['name']?></option>
 
-                    <option value="<?php echo $category['id']?>"><?php echo $category['name']?></option>
+            <?php
+        }
+        ?>
+    </select>
+<?php
+$selectHtml = ob_get_clean();
 
-                <?php
-                }
-                ?>
-            </select>
-        </fieldset>
-    </div>
-
-    <button class="btn getMeasurements">Get Measurements</button>
-</div>
-
-<hr/>
+echo LayoutHelper::buildFromInputDriverTemplate("sportCategory", "Sport Category", $selectHtml,
+    "getMeasurements", "Get Measurements");
+?>
 
 <div>
     <div class="measurementsContainer"></div>
