@@ -59,22 +59,6 @@ class LayoutHelper {
         ob_start();
         ?>
 
-        <div id="<?php echo trim($containerClasses)?>" title="Delete?">
-            <p>
-                <span class="ui-icon ui-icon-alert"
-                     style="float:left; margin:0 7px 20px 0;"></span>
-                <?php echo $deleteMessage?>
-            </p>
-        </div>
-
-        <?php
-        return ob_get_clean();
-    }
-
-    public static function getDeleteDialogBox2($containerClasses, $deleteMessage) {
-        ob_start();
-        ?>
-
         <div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons
             dialogBox <?php echo $containerClasses?>" tabindex="-1">
             <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix

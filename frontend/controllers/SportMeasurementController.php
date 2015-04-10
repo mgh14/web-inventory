@@ -69,7 +69,7 @@ class SportMeasurementController extends \yii\base\Controller {
             "allCategories" => $allCategories,
             "valueTypesDropdown" => $this->measurementsUtil->
                 getDropdownOfPossibleValueTypes("", "newMeasurementTypeSelect"),
-            "deleteDialog" => LayoutHelper::getDeleteDialogBox2(
+            "deleteDialog" => LayoutHelper::getDeleteDialogBox(
                 "deleteMeasurementDialog", trim(ob_get_clean()))
         ]);
     }
