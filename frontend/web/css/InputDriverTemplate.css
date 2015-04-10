@@ -1,0 +1,37 @@
+body {
+    font-size: 1.2em;
+}
+
+.inputDriverDiv {
+    position: relative;
+}
+
+.inputGroup {
+    width: 20%;
+    display: inline-block;
+}
+
+.inputDriverBtn {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.spacer {
+    display: inline-block;
+    width: 5px;
+}
+
+#viewBtnFieldset {
+    width: 100px;
+}
+
+#viewBtnBanner {
+    display: block;
+    text-align: center;
+}
+
+.viewBtn {
+    display: inline-block;
+    margin-top: 7px;
+    margin-left: 3%;
+}

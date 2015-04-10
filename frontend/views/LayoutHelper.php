@@ -3,14 +3,41 @@ namespace frontend\views;
 
 class LayoutHelper {
 
+    public static function buildFromInputDriverTemplate($formGroupLabel, $title, $inputHtml, $btnClasses, $btnText) {
+        ob_start();
+        ?>
+
+        <div class="inputDriverDiv">
+            <div class="inputDriverDiv inputGroup" style="display: inline-block;">
+                <fieldset>
+                    <label for="<?php echo $formGroupLabel?>"><?php echo $title?></label>
+                    <div id="<?php echo $formGroupLabel?>Container" class="">
+                        <?php echo $inputHtml?>
+                        <!--<input id="searchBar" class="typeahead" type="text" placeholder="Enter a search value">-->
+                    </div>
+                </fieldset>
+            </div>
+
+            <button class="btn inputDriverBtn <?php echo $btnClasses?>" style="display: inline-block;"><?php echo $btnText?></button>
+
+            <?php echo static::getViewButtons()?>
+        </div>
+
+        <hr>
+
+        <?php
+        return ob_get_clean();
+    }
+
     public static function getViewButtons() {
         ob_start();
         ?>
 
-        <button class="btn floatRight" style="margin-right: 3%;"
-                id="listViewBtn" disabled="disabled">List</button>
-        <button class="btn floatRight" style="margin-right: .2%;"
-                id="gridViewBtn" disabled="disabled">Grid</button>
+        <fieldset class="floatRight" id="viewBtnFieldset">
+            <label for="viewBtns" id="viewBtnBanner">Viewing Style </label>
+            <button class="btn viewBtn" id="listViewBtn" disabled="disabled">List</button>
+            <button class="btn viewBtn" id="gridViewBtn" disabled="disabled">Grid</button>
+        </fieldset>
 
         <?php
         return ob_get_clean();
