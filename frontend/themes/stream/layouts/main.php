@@ -34,7 +34,7 @@ AppAsset::register($this);
 <body style="margin: 0;">
 <?php $this->beginBody(); ?>
 <div class="container">
-    <div class="header">
+    <div class="header" style="position: fixed;">
         <div class="logo" style="">
             <i>Stream EqM</i>
         </div>
@@ -51,7 +51,7 @@ AppAsset::register($this);
         </div>
     </div>
     <div style="width: 100%; margin: 0px; position: relative; height: 100%;">
-        <div class="leftColumn">
+        <div class="leftColumn" style="position: fixed;">
             <div class="usernameContainer">
                 <div class="username">Username</div>
             </div>
