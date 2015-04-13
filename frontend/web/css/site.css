@@ -16,6 +16,7 @@ body {
 
 
 /* //////////////// SUB NAV BAR ////////////////*/
+
 .subnavbar {
     position: fixed;
     z-index: 1100;
@@ -199,4 +200,8 @@ a.desc:after {
 
 table td {
     border: 1px solid #DCDCDC;
+}
+
+.ui-widget {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
