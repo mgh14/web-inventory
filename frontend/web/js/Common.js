@@ -15,6 +15,27 @@
 
 var btnPrimaryCssClassName = 'btn-primary';
 
+$(document).ready(function() {
+  // subnavbar show child menus on click
+  $(".menu").menu();
+  $('.category').click(function() {
+    // hide any open menus
+    $('.menu').hide();
+
+    // show the menu (provided the clicked sublink has one)
+    var menuElement = $(this).find('.menu').first();
+    if (menuElement.length != 0) {
+      $(menuElement).show();
+    }
+  });
+
+  // subnavbar hide child menus
+  $('.ui-menu').bind("mouseleave", function() {
+    $(this).hide();
+  });
+
+});
+
 ///////////////////// GRID AND LIST VIEW FUNCTIONS ////////////////////////
 
 function setUpGridAndListView(gridViewBtnSelector, listViewBtnSelector,

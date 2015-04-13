@@ -25,7 +25,7 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => "<img src=''/>",
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -52,6 +52,44 @@ AppAsset::register($this);
             ]);
             NavBar::end();
         ?>
+        <div class="subnavbar" style="position: fixed; height: 30px; width: 100%; background-color: #383838; margin-top:50px;">
+            <div class="sublinksContainer">
+                <div class="category">
+                    <div class="categoryText">
+                        Measurements
+                        <ul class="menu">
+                            <li>Manage Measurements</li>
+                            <li>Measurements by Sport</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="categoryText">
+                        Users
+                        <ul class="menu">
+                            <!--<li class="ui-state-disabled">Aberdeen</li>-->
+                            <li>Directory</li>
+                            <li>Teams</li>
+                            <li>New Players</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="categoryText">
+                        Equipment
+                        <ul class="menu">
+                            <li>New Item</li>
+                            <li>View and Print</li>
+                            <li>Manage Tags</li>
+                            <li>Scan Items</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="category" style="border-right: 1px solid #585858;">
+                    <div class="categoryText">Help Topics</div>
+                </div>
+            </div>
+        </div>
 
         <div class="container">
             <?php $this->beginBody()?>
