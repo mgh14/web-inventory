@@ -14,6 +14,15 @@ class CollectionChildDao {
         return Yii::$app->db;
     }
 
+    public static function getCollectionsAndFirstChildren($parentIds) {
+        $db = static::getDb();
+
+        $db->createCommand("SELECT * FROM" . " " . static::tableName() .
+            " WHERE parent_id IN (:ids)");
+
+
+    }
+
     public static function isCollectionAncestorOfCollection($collectionId, $potentialAncestorId) {
         // query with mysqli for better performance
         /* @var mysqli $conn */
