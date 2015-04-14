@@ -20,7 +20,7 @@ class CollectionController extends Controller {
 
     public function init() {
         parent::init();
-        $this->collectionUtil = new CollectionUtil();
+        $this->setCollectionUtil(new CollectionUtil());
     }
 
     public function setCollectionUtil($newCollectionUtil) {
