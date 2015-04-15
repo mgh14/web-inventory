@@ -1,4 +1,5 @@
 <?php
+use frontend\assets\InputDriverTemplateAsset;
 use frontend\assets\UserAsset;
 use frontend\views\LayoutHelper;
 use yii\web\View;
@@ -10,30 +11,24 @@ $this->title = "User Directory";
 //$this->params['breadcrumbs'][] = $this->title;
 
 UserAsset::register($this, View::POS_BEGIN);
+InputDriverTemplateAsset::register($this, View::POS_BEGIN);
+\frontend\assets\TypeaheadAsset::register($this, View::POS_BEGIN);
+
+ob_start();
 ?>
 
-<div id="userSearchContainer" class="floatLeft">
-    <input id="searchBar" class="typeahead" type="text" placeholder="Enter a search value">
-</div>
-<div id='loader1' class="floatLeft loader">
-    <img src="http://localhost/public_html/mr-test-two/frontend/images/load/ajax-loader.gif"/>
-</div>
-<button class="btn floatLeft" id="searchUsersBtn">Search</button>
+    <input id="searchBar" class="typeahead form-control" type="text"
+           placeholder="Enter a username" />
 
-<?php echo LayoutHelper::getViewButtons()?>
+<?php
+$inputHtml = ob_get_clean();
 
-<div style="clear: both;"></div>
-<hr/>
+echo LayoutHelper::buildFromInputDriverTemplate("userSearchFormGroup", "User Search",
+    $inputHtml, "searchUsersBtn", "Get Users");
 
+?>
 <div id="users" style="display: inline-block;">
     <div id="users-grid" style="display: inline-block;"></div>
     <div id="users-list" style="display: none;"></div>
     <div id="paginationContainer"></div>
 </div>
-
-<style>
-    .loader {
-        display: none;
-    }
-</style>
-

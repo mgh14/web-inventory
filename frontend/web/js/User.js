@@ -43,7 +43,7 @@ $(document).ready(function() {
 
   users.initialize();
 
-  $('#userSearchContainer .typeahead').typeahead(null, {
+  $('#userSearchFormGroupContainer .typeahead').typeahead(null, {
     highlight: true,
     minLength: 1,
     displayKey: 'value',
@@ -59,8 +59,10 @@ $(document).ready(function() {
     }
   });
 
+  $('.tt-dropdown-menu').addClass('dropdown-menu');
+
   // set up "search" button
-  $('#searchUsersBtn').click(function() {
+  $('.searchUsersBtn').click(function() {
     var query = $('#searchBar').val();
     loadPaginatedUserSetResults("?r=user%2Fget-user-profiles&query=" +
       query + "&offset=0", query);
