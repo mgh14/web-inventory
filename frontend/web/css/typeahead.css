@@ -1,0 +1,9 @@
+.tt-dropdown-menu {
+    width: 100%;
+    background-color: #fff;
+}
+
+.tt-cursor{
+    color:#337ab7;
+    cursor: pointer;
+}

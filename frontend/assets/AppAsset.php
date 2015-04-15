@@ -23,7 +23,6 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/Common.js',
-        'js/typeahead.js',
         'js/jquery-ui.min.js'
     ];
     public $depends = [
