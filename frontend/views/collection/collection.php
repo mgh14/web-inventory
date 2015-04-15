@@ -12,7 +12,7 @@ use yii\web\View;
  * @var Array $childCollections
  */
 
-$this->title = "Collection View";
+$this->title = "Add or Edit Collection";
 
 CollectionsAsset::register($this, View::POS_BEGIN);
 InputDriverTemplateAsset::register($this, View::POS_BEGIN);
@@ -20,7 +20,8 @@ InputDriverTemplateAsset::register($this, View::POS_BEGIN);
 ob_start();
 ?>
 
-<input id="searchBar" class="typeahead form-control" type="text" placeholder="Enter a collection name">
+<input id="searchBar" class="typeahead form-control" type="text"
+       placeholder="Enter a collection name" />
 
 <?php
 $inputHtml = ob_get_clean();
