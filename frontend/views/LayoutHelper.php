@@ -8,10 +8,12 @@ class LayoutHelper {
         ?>
 
         <div class="inputDriverDiv">
-            <div class="inputDriverDiv inputGroup" style="display: inline-block;">
+            <div class="inputDriverDiv inputGroup form-group" style="display: inline-block;">
                 <fieldset>
-                    <label for="<?php echo $formGroupLabel?>"><?php echo $title?></label>
-                    <div id="<?php echo $formGroupLabel?>Container" class="">
+                    <label for="<?php echo $formGroupLabel?>">
+                        <h3><?php echo $title?></h3>
+                    </label>
+                    <div id="<?php echo $formGroupLabel?>Container">
                         <?php echo $inputHtml?>
                         <!--<input id="searchBar" class="typeahead" type="text" placeholder="Enter a search value">-->
                     </div>
