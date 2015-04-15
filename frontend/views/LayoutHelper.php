@@ -25,7 +25,7 @@ class LayoutHelper {
             <?php echo static::getViewButtons()?>
         </div>
 
-        <hr>
+        <hr/>
 
         <?php
         return ob_get_clean();
