@@ -1,8 +1,11 @@
+.formBtn {
+    margin-left: 10px;
+}
+
+/* /////////////////// ALL COLLECTIONS PAGE /////////////////*/
+
 #searchBar {
     padding: 10px;
-}
-#collectionSearchFormGroupContainer {
-    margin-top: 14px;
 }
 
 .btn {
@@ -11,4 +14,50 @@
 
 .collectionAccordion {
     width: 50%;
+}
+
+/* ////////////////// COLLECTIONS PAGE /////////////////*/
+
+hr {
+    margin: 10px 0;
+}
+
+.collectionSubcontainer {
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+}
+.collectionSubcontainer .form-control {
+    width: 55%;
+}
+
+.addedItemsContainer {
+    margin-top: 30px;
+}
+
+.table * {
+    border: none;
+}
+
+.collectionNameContainer input {
+    width: 75%;
+}
+
+.addCollectionContainer {
+    margin-top: 30px;
+}
+
+.addCollectionBtn {
+    margin-left: 10px;
+}
+
+.removeCollectionContainer {
+    margin-top: 30px;
+}
+.removeCollectionContainer p {
+    position: relative;
+    margin-top: -5px;
+}
+.removeCollectionContainer .btn {
+    margin-top: 5px;
 }

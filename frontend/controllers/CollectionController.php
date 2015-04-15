@@ -172,10 +172,16 @@ class CollectionController extends Controller {
 
         // load child items
         $childItems = $this->collectionUtil->getChildItems($collectionId);
+        // TODO: Add pagination to this logic like below so that it doesn't take
+        // forever to load or change the page
+        $childItemsModified = array();
+        for($i=0; $i<20; $i++) {
+            $childItemsModified[] = $childItems[$i];
+        }
 
         return $this->render('collection', [
             'childCollections' => $childCollections,
-            'childItems' => $childItems]);
+            'childItems' => $childItemsModified]);
     }
 
     private function getCollectionHtmlDropdown($collections) {
