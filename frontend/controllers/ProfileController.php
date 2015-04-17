@@ -106,7 +106,8 @@ class ProfileController extends Controller {
 
         return $this->render('profile', ['user' => $user,
             'accountType' => $userType->name,
-            'profileImgHtml' => $this->profileUtil->getProfileImageHtml($userId, "floatLeft", "", "15em", "15em")]);
+            'profileImgHtml' => $this->profileUtil->getProfileImageHtml($userId,
+                "", "", "14em", "14em")]);
     }
 
 }

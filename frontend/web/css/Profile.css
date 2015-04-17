@@ -1,0 +1,35 @@
+.profileContainer {
+    width: 100%;
+}
+
+.profileGroup {
+    width: 45%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.spacer {
+    width: 8%;
+    display: inline-block;
+}
+
+.basicProfileInfo {
+    display: inline-block;
+}
+.basicProfileInfo > div {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 35px;
+}
+
+.basicInfoText {
+    margin-top: 65px !important;
+}
+
+.jerseySportColWidth {
+    width: 70%;
+}
+
+.dressingSportColWidth {
+    width: 75%;
+}
