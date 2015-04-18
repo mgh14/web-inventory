@@ -20,6 +20,10 @@
     vertical-align: top;
 }
 
+.form-control {
+    width: auto !important;
+}
+
 .inputDriverBtn {
     display: inline-block;
     margin-left: 15px;

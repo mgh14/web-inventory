@@ -22,12 +22,14 @@ InputDriverTemplateAsset::register($this, View::POS_BEGIN);
 ob_start();
 ?>
 
-    <input id="searchBar" class="typeahead" type="text" placeholder="Enter a search value">
+    <input id="searchBar" class="typeahead form-control"
+           type="text" placeholder="Enter a search value">
 
 <?php
 $inputHtml = ob_get_clean();
 
-echo LayoutHelper::buildFromInputDriverTemplate("collectionSearchFormGroup", "Collection Search", $inputHtml, "", "Get Collections");
+echo LayoutHelper::buildFromInputDriverTemplate("collectionSearchFormGroup",
+    "Collection Search", $inputHtml, "", "Get Collections");
 
 ?>
 <div class="collectionAccordion">
