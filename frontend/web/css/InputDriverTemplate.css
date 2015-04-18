@@ -1,15 +1,28 @@
 .inputDriverDiv {
     position: relative;
 }
+.inputDriverDiv > .fieldsetWrapper {
+    display: inline-block;
+}
 
 .inputGroup {
+    position: relative;
     width: 20%;
     display: inline-block;
 }
 
+.fieldsetWrapper {
+    position: relative;
+}
+
+.formGroupContainer > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
 .inputDriverBtn {
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .spacer {

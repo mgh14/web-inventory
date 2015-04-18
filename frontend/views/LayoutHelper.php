@@ -3,27 +3,42 @@ namespace frontend\views;
 
 class LayoutHelper {
 
-    public static function buildFromInputDriverTemplate($formGroupLabel, $title, $inputHtml, $btnClasses, $btnText) {
+    public static function buildFieldset($containerClasses, $formGroupLabel, $title,
+                                         $inputHtml, $btnClasses, $btnText, $extraHtml) {
         ob_start();
         ?>
 
-        <div class="inputDriverDiv">
-            <div class="inputDriverDiv inputGroup form-group" style="display: inline-block;">
-                <fieldset>
+        <div class="<?php echo $formGroupLabel?>FormContainer <?php echo $containerClasses?>">
+            <div class="fieldsetWrapper">
+                <fieldset class="input-group form-group">
                     <label for="<?php echo $formGroupLabel?>">
                         <h3><?php echo $title?></h3>
                     </label>
-                    <div id="<?php echo $formGroupLabel?>Container">
+
+                    <div id="<?php echo $formGroupLabel?>Container" class="formGroupContainer">
                         <?php echo $inputHtml?>
-                        <!--<input id="searchBar" class="typeahead" type="text" placeholder="Enter a search value">-->
+
+                        <button class="btn inputDriverBtn <?php echo $btnClasses?>">
+                            <?php echo $btnText?>
+                        </button>
                     </div>
                 </fieldset>
             </div>
 
-            <button class="btn inputDriverBtn <?php echo $btnClasses?>" style="display: inline-block;"><?php echo $btnText?></button>
-
-            <?php echo static::getViewButtons()?>
+            <?php echo $extraHtml?>
         </div>
+
+        <?php
+        return ob_get_clean();
+    }
+
+    public static function buildFromInputDriverTemplate($formGroupLabel, $title, $inputHtml,
+        $btnClasses, $btnText) {
+
+        ob_start();
+        echo static::buildFieldset("inputDriverDiv", $formGroupLabel, $title, $inputHtml,
+            "inputDriverBtn " . $btnClasses, $btnText, static::getViewButtons());
+        ?>
 
         <hr/>
 

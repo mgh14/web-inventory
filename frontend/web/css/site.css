@@ -20,6 +20,10 @@ body {
     text-align: center;
 }
 
+.inputGroup {
+    display: inline-block;
+}
+
 /* //////////////// SUB NAV BAR ////////////////*/
 
 .subnavbar {
